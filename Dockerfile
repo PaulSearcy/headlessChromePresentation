@@ -15,6 +15,6 @@ WORKDIR /present
 
 COPY ./ /present
 RUN npm i
-RUN chmod +x /present/server/startup.sh
+RUN [chmod +x ./server/startup.sh]
 
-CMD ["/present/server/startup.sh"]
+CMD ["./server/startUp.sh"]
