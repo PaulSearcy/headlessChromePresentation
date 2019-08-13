@@ -1,0 +1,93 @@
+/**
+ * Body CSS
+ */
+html,
+body {
+    height: 100%;
+}
+
+html,
+body,
+input,
+textarea,
+button {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+}
+
+aside {
+    grid-area: aside;
+    height: 100vh;
+}
+
+main {
+    grid-area: main;
+}
+
+#container {
+    display: grid;
+    grid-template-areas: "aside main";
+    column-gap: 1.25rem;
+    background-color: #eee;
+    padding-left: 0;
+    height: 100vh;
+}
+
+@media (min-width: 768px) {
+    #container {
+        grid-template-areas: "aside main";
+        grid-template-columns: 11.25rem 70%;
+    }
+}
+
+/**
+  * Sidebar CSS
+  */
+#sidebar {
+    background-color: rgb(56, 40, 199);
+    padding: 15px;
+    max-width: 180px;
+}
+
+#sidebar h1 {
+    color: #fff;
+    padding: 0;
+    margin: 0;
+    font-size: 1.65rem;
+}
+
+#sideBarLinks {
+    display: grid;
+    row-gap: 1rem;
+}
+
+#sideBarLinks li:first-child {
+    margin-top: 1.25rem;
+}
+
+#sideBarLinks li {
+    font-size: 1rem;
+    line-height: 1.429;
+    font-weight: 700;
+}
+
+#sideBarLinks li a {
+    color: navajowhite;
+}
+
+/**
+  * Content CSS
+  */
+
+
+header ul.mui-list--inline {
+    margin-bottom: 0;
+}
+
+
+.mui--text-body2 {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+}

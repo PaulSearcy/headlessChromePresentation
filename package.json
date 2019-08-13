@@ -1,0 +1,23 @@
+{
+  "name": "chromeheadlesspresentation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.5.5",
+    "express": "^4.17.1",
+    "ignore-styles": "^5.0.1",
+    "muicss": "^0.9.43",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "webpack": "^4.39.1"
+  }
+}
