@@ -8,17 +8,17 @@ const emulatePrint = async url => new Promise ((resolve,reject) => {
             await LayerTree.enable()
             await DOM.enable()
             await Network.enable()
-            //magic
             await Emulation.setEmulatedMedia({ media: 'print' })
-
             await Page.navigate({url})
 
             Page.loadEventFired( async () => {
-                const pdf = await Page.printToPDF({printBackground: true,preferCSSPageSize:true})
-                const buff = Buffer.from(pdf.data, 'base64')
+                setTimeout(async function() {
+                    const pdf = await Page.printToPDF({printBackground: true,preferCSSPageSize:true})
+                    const buff = Buffer.from(pdf.data, 'base64')
 
-                await client.close()
-                resolve(buff)
+                    await client.close()
+                    resolve(buff)
+                }, 1000)
             })
         } catch(err) {
             reject(err.message)

@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": " chrome-headless-render-pdf --url=https://calculator.giftillustrator.com/default/gift-annuity --pdf=test.pdf"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +13,7 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.5.5",
+    "chrome-headless-render-pdf": "^1.8.2",
     "chrome-remote-interface": "^0.27.2",
     "express": "^4.17.1",
     "ignore-styles": "^5.0.1",
