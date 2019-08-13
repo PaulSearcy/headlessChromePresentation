@@ -3,7 +3,7 @@ import CDP from 'chrome-remote-interface'
 const emulatePrint = async url => new Promise ((resolve,reject) => {
     CDP({host: 'localhost'}, async client => {
         try {
-            const {Page, Emulation, LayerTree } = client
+            const {Page, DOM, Network, Emulation, LayerTree } = client
             await Page.enable()
             await LayerTree.enable()
             await DOM.enable()

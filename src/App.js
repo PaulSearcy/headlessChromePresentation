@@ -4,7 +4,7 @@ import { Form, Input, Panel, Button, Container } from 'muicss/react';
 const App = () => {
     const [targetURL,setTargetURL] = useState('')
 
-    const generatePDF = async () => await fetch('/',{
+    const generatePDF = async () => await fetch('/generate',{
         method: 'POST',
         body: JSON.stringify({
             targetURL: targetURL
@@ -13,6 +13,12 @@ const App = () => {
     .then(res => res.json())
     .then(res => console.log(res))
     .catch(err => console.error(err))
+
+    const handleSubmit = e => {
+        console.log(this)
+        e.preventDefault()
+        generatePDF()
+    }
 
     return (
         <Container id="container" fluid={true}>
@@ -30,9 +36,9 @@ const App = () => {
                 <p>
                     Type in an URL and click button to download a pdf snapshot of a website.
                 </p>
-    
+
                 <Panel>
-                    <Form id="urlForm" >
+                    <Form id="urlForm" onSubmit={handleSubmit} >
                         <Input id="urlInput" value={targetURL} onChange={e => setTargetURL(e.target.value)}/>
                         <Button color="primary">submit</Button>
                     </Form>

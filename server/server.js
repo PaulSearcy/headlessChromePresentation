@@ -37,7 +37,7 @@ app.get('/', serverRenderer)
 app.post('/generate', (req,res) => {
     console.log('here')
     console.log(req.body)
-    emulatePrint(req.body.url)
+    res.send(emulatePrint(req.body.targetURL))
 })
 app.listen(port, () => {
     console.log(`Listening at http://localhost:${port}/`)

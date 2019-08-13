@@ -15,6 +15,5 @@ WORKDIR /present
 
 COPY ./ /present
 RUN npm i
-RUN chmod +x ./server/startUp.sh
 
-CMD ["./server/startUp.sh"]
+CMD google-chrome --headless --disable-gpu --remote-debugging-port=9222 --cap-add=SYS_ADMIN --no-sandbox
