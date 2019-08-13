@@ -12,7 +12,9 @@ RUN apt-get update && apt-get install -y \
     && apt install nodejs -y
 
 WORKDIR /present
-COPY --chown=docker:docker ./ /present
 
+COPY ./ /present
 RUN npm i
-CMD ["/server/startup.sh"]
+RUN chmod +x /present/server/startup.sh
+
+CMD ["/present/server/startup.sh"]
