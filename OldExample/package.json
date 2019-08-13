@@ -1,0 +1,25 @@
+{
+  "name": "pdf",
+  "version": "1.0.0",
+  "pdf": {
+    "name": "pdf",
+    "net": "pdf",
+    "chrome": "headless"
+  },
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "docker build -t pdf:$npm_package_version . && docker run -d -p 9222:8093 --name=pdf pdf:$npm_package_version && docker exec -d pdf node server.js",
+    "hacky": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "chrome-remote-interface": "^0.26.1",
+    "connect-timeout": "^1.9.0",
+    "express": "^4.16.4",
+    "minimist": "^1.2.0",
+    "puppeteer-core": "^1.9.0"
+  }
+}

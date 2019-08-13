@@ -1,19 +1,18 @@
 import React, {useState} from 'react'
 import { Form, Input, Panel, Button, Container } from 'muicss/react';
 
-let App = () => {
-    let [targetURL,
-        setTargetURL] = useState('n/a')
-    let [links,
-        setLinks] = useState('n/a')
-    let [scripts,
-        setScripts] = useState('n/a')
-    let [page,
-        setPage] = useState('n/a')
+const App = () => {
+    const [targetURL,setTargetURL] = useState('')
 
-    // const scanURL = async targetURL => await fetch(targetURL)
-    //     .then(data => data.text())
-    //     .then(data => toHTML(data))
+    const generatePDF = async () => await fetch('/',{
+        method: 'POST',
+        body: JSON.stringify({
+            targetURL: targetURL
+        })
+    })
+    .then(res => res.json())
+    .then(res => console.log(res))
+    .catch(err => console.error(err))
 
     return (
         <Container id="container" fluid={true}>
@@ -34,7 +33,7 @@ let App = () => {
     
                 <Panel>
                     <Form id="urlForm" >
-                        <Input id="urlInput"/>
+                        <Input id="urlInput" value={targetURL} onChange={e => setTargetURL(e.target.value)}/>
                         <Button color="primary">submit</Button>
                     </Form>
                 </Panel>

@@ -13,6 +13,7 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.5.5",
+    "chrome-remote-interface": "^0.27.2",
     "express": "^4.17.1",
     "ignore-styles": "^5.0.1",
     "muicss": "^0.9.43",

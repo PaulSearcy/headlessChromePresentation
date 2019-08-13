@@ -4,11 +4,16 @@ import path from 'path'
 import express from 'express'
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
+import emulatePrint from './emulatePrint.js'
 
-import App from './src/App.js'
+import App from '../src/App.js'
+
+
 
 const port = Number(process.env.PORT) || 3000
 const app = express()
+app.use(express.json()) // for parsing application/json
+app.use(express.urlencoded({ extended: true }))
 
 const serverRenderer = (req, res, next) => {
     fs.readFile(path.resolve('./public/index.html'), 'utf8', (err, data) => {
@@ -25,11 +30,15 @@ const serverRenderer = (req, res, next) => {
     })
   }
 
-app.use('/public', express.static(path.join(__dirname, 'public')))
-app.use('/dist', express.static(path.join(__dirname, 'dist')))
+app.use('/public', express.static(path.join(__dirname, '../public')))
+app.use('/dist', express.static(path.join(__dirname, '../dist')))
 app.get('/', serverRenderer)
 
-app.post('/', (req,res) => res.json({test:'test'}))
+app.post('/generate', (req,res) => {
+    console.log('here')
+    console.log(req.body)
+    emulatePrint(req.body.url)
+})
 app.listen(port, () => {
     console.log(`Listening at http://localhost:${port}/`)
 })
