@@ -15,7 +15,7 @@
     "@babel/register": "^7.5.5",
     "chrome-headless-render-pdf": "^1.8.2",
     "chrome-remote-interface": "^0.27.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "ignore-styles": "^5.0.1",
     "muicss": "^0.9.43",
     "react": "^16.9.0",
